@@ -1,5 +1,5 @@
 {% set name = "git-credential-manager" %}
-{% set version = "2.0.785" %}
+{% set version = "2.0.866" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 41ce59a717b773718d45de487624c1eae8497cd735ef79878ee4baf8b14d9b64
+  sha256: 22e00a7dabd0f78b0b8db3b2cdafdbdd7bf247429e491c01748b214203c38a62
 
 build:
   skip: true  # [not linux64]
@@ -43,7 +43,7 @@ test:
 
 about:
   home: https://github.com/GitCredentialManager/git-credential-manager
-  summary: 'Secure, cross-platform Git credential storage'
+  summary: Secure, cross-platform Git credential storage
   description: |
     Secure, cross-platform Git credential storage with authentication to
     GitHub, Azure Repos, and other popular Git hosting services.
