@@ -1,5 +1,5 @@
 {% set name = "git-credential-manager" %}
-{% set version = "2.0.866" %}
+{% set version = "2.0.877" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 22e00a7dabd0f78b0b8db3b2cdafdbdd7bf247429e491c01748b214203c38a62
+  sha256: a8b7e556c5495f347dc96ac9549bc44c400fed35fc122e65e1be0af71509ed74
 
 build:
   skip: true  # [not linux64]
