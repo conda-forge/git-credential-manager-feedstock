@@ -1,11 +1,11 @@
-About git-credential-manager
-============================
+About git-credential-manager-feedstock
+======================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/git-credential-manager-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/GitCredentialManager/git-credential-manager
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/git-credential-manager-feedstock/blob/main/LICENSE.txt)
 
 Summary: Secure, cross-platform Git credential storage
 
