@@ -19,7 +19,7 @@ build:
     echo $(jq '.version = "{{ version }}"' version.json) > version.json
     # Build app
     dotnet build ./src/linux/Packaging.Linux/Packaging.Linux.csproj -c Release -p:InstallFromSource=true
-  number: 0
+  number: 1
 
 requirements:
   build:
