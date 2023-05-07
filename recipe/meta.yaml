@@ -1,5 +1,5 @@
 {% set name = "git-credential-manager" %}
-{% set version = "2.0.935" %}
+{% set version = "2.1.0" %}
 {% set dotnet_version = "6.0.11" %}
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz  # [linux64]
-  sha256: 30a027de376f31e41dd5b3b2083108944f833f2c78c5470e6b82d1b0fed43464  # [linux64]
+  sha256: c51594f6fc06860a8cf81d7bb55a41856be83cc5bba1d3fc131f226d4fd03690  # [linux64]
   url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/{{ name }}.{{ version }}.nupkg  # [not linux64]
   fn: {{ name }}.{{ version }}.nupkg  # [not linux64]
-  sha256: 7ddbb105f75948ff4a8fd52fbdfd773779486d8c020c543cec5a4b1a6f63568e  # [not linux64]
+  sha256: 8a362204d3f5ef1b0774dcdf768fa3be12e9209cf7fc224f3435625d6b94b28e  # [not linux64]
 
 build:
   number: 1
