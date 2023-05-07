@@ -37,7 +37,7 @@ test:
     - git
     - dotnet-runtime ={{ dotnet_version }}  # [not linux64]
   commands:
-    - git credential-manager --version
+    - git-credential-manager --version
 
 about:
   home: https://github.com/GitCredentialManager/git-credential-manager
