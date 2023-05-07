@@ -1,5 +1,5 @@
---- src/Linux/Packaging.Linux/build.sh
-+++ src/Linux/Packaging.Linux/build.sh
+--- src/linux/Packaging.Linux/build.sh
++++ src/linux/Packaging.Linux/build.sh
 @@ -48,4 +48,4 @@
  
  # Lay out payload
