@@ -1,11 +1,11 @@
 set -eoux pipefail
 
-# Set the correct version
-echo '{"version": "'"${PKG_VERSION}"'"}' > version.json
-
-# Build app
 if [[ "${target_platform}" == linux-* ]]
 then
+  # Set the correct version
+  echo '{"version": "'"${PKG_VERSION}"'"}' > version.json
+
+  # Build app
   dotnet build ./src/linux/Packaging.Linux/Packaging.Linux.csproj \
     -c Release \
     -p:InstallFromSource=true \
@@ -13,9 +13,6 @@ then
 else
   # Install script taken from
   # https://github.com/git-ecosystem/git-credential-manager/blob/release/src/linux/Packaging.Linux/build.sh
-
-  ls
-  ls payload
 
   INSTALL_TO="$PREFIX/share/gcm-core/"
   LINK_TO="$PREFIX/bin/"
