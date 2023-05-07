@@ -1,6 +1,6 @@
 --- src/linux/Packaging.Linux/build.sh
 +++ src/linux/Packaging.Linux/build.sh
-@@ -48,4 +48,4 @@
+@@ -48,10 +48,10 @@
  
  # Lay out payload
  "$INSTALLER_SRC/layout.sh" --configuration="$CONFIGURATION" || exit 1
