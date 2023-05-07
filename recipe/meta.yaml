@@ -1,45 +1,43 @@
 {% set name = "git-credential-manager" %}
 {% set version = "2.0.935" %}
+{% set dotnet_version = "6.0.11" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 30a027de376f31e41dd5b3b2083108944f833f2c78c5470e6b82d1b0fed43464
+  url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz  # [linux64]
+  sha256: 30a027de376f31e41dd5b3b2083108944f833f2c78c5470e6b82d1b0fed43464  # [linux64]
+  url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/{{ name }}.{{ version }}.nupkg  # [not linux64]
+  fn: {{ name }}.{{ version }}.nupkg  # [not linux64]
+  sha256: 7ddbb105f75948ff4a8fd52fbdfd773779486d8c020c543cec5a4b1a6f63568e  # [not linux64]
 
 build:
-  skip: true  # [not linux64]
-  script: |
-    set -eoux pipefail
-    # Set correct install location
-    sed -i -E 's|^\s*INSTALL_LOCATION="(.*)"$|    INSTALL_LOCATION="${PREFIX}"|g' ./src/linux/Packaging.Linux/build.sh
-    # Set the correct version
-    echo $(jq '.version = "{{ version }}"' version.json) > version.json
-    # Build app
-    dotnet build ./src/linux/Packaging.Linux/Packaging.Linux.csproj -c Release -p:InstallFromSource=true
-  number: 0
+  number: 1
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
-    - dotnet  >=6
-    - jq
+    - {{ compiler('cxx') }}  # [linux64]
+    - dotnet  >=6            # [linux64]
+    - jq                     # [linux64]
+    - dotnet   =6            # [not linux64]
   host:
-    - fontconfig
+    - fontconfig             # [linux64]
     - lttng-ust              # [linux64]
-    - zlib                   # [unix]
+    - zlib                   # [linux64]
   run:
-    - dotnet-runtime  >=6
-    - krb5                   # [unix]
+    - dotnet-runtime  >=6    # [linux64]
+    - krb5                   # [linux64]
     - lttng-ust              # [linux64]
+    - dotnet-runtime >={{ dotnet_version }},<7  # [not linux64]
 
 test:
   requires:
     - git
+    - dotnet-runtime ={{ dotnet_version }}  # [not linux64]
   commands:
-    - git-credential-manager-core --version
+    - git credential-manager --version
 
 about:
   home: https://github.com/GitCredentialManager/git-credential-manager
