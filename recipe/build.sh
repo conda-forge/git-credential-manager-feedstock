@@ -14,6 +14,9 @@ else
   # Install script taken from
   # https://github.com/git-ecosystem/git-credential-manager/blob/release/src/linux/Packaging.Linux/build.sh
 
+  ls
+  ls payload
+
   INSTALL_TO="$PREFIX/share/gcm-core/"
   LINK_TO="$PREFIX/bin/"
 
