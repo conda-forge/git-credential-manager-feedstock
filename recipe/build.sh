@@ -10,7 +10,7 @@ then
   dotnet build ./src/linux/Packaging.Linux/Packaging.Linux.csproj -c Release -p:InstallFromSource=true
 else
   dotnet tool install git-credential-manager \
-    --tool-path "${DOTNET_TOOLS}" \
+    --tool-path "${PREFIX}/lib/dotnet/tools" \
     --add-source "${SRC_DIR}" \
     --verbosity diagnostic \
     ;
