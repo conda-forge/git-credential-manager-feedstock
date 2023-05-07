@@ -11,7 +11,7 @@ source:
     sha256: c51594f6fc06860a8cf81d7bb55a41856be83cc5bba1d3fc131f226d4fd03690
     patches:
       - 00001-set_install_location.patch
-  -
+  -  # [win64 or osx]
     url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/gcm-osx-arm64.{{ version }}.tar.gz  # [osx and arm64]
     sha256: edaaf706cd92a0b838927694276ad9f9573e6196210070e801d3b90f3ea2197f  # [osx and arm64]
     url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/gcm-osx-x64.{{ version }}.tar.gz  # [osx and x86_64]
