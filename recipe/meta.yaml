@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: c51594f6fc06860a8cf81d7bb55a41856be83cc5bba1d3fc131f226d4fd03690
-    patches:
-      - 00001-set_linux_runtime.patch
-      - 00002-set_win_framework.patch
+  url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: c51594f6fc06860a8cf81d7bb55a41856be83cc5bba1d3fc131f226d4fd03690
+  patches:
+    - 00001-set_linux_runtime.patch
+    - 00002-set_win_framework.patch
 
 build:
   number: 1
