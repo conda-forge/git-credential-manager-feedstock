@@ -23,7 +23,7 @@ requirements:
     - dotnet  >=6
   host:
     - fontconfig  # [linux]
-    - zlib  # [linux]
+    - zlib  # [aarch64]
   run:
     - dotnet-runtime =6
 

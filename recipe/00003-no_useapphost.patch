@@ -1,34 +1,31 @@
 --- src/windows/Installer.Windows/layout.ps1
 +++ src/windows/Installer.Windows/layout.ps1
-@@ -44,35 +44,33 @@
+@@ -44,35 +44,29 @@
  	--framework net472 `
  	--configuration "$CONFIGURATION" `
  	--runtime win-x86 `
-+	-p:UseAppHost=false `
- 	--output "$PAYLOAD"
+-	--output "$PAYLOAD"
++	--output "$PAYLOAD" `
++	-p:UseAppHost=false
  
  Write-Output "Publishing core UI helper..."
  dotnet publish "$GCM_UI_SRC" `
  	--configuration "$CONFIGURATION" `
-+	-p:UseAppHost=false `
  	--output "$PAYLOAD"
  
  Write-Output "Publishing Bitbucket UI helper..."
  dotnet publish "$BITBUCKET_UI_SRC" `
  	--configuration "$CONFIGURATION" `
-+	-p:UseAppHost=false `
  	--output "$PAYLOAD" 
  
  Write-Output "Publishing GitHub UI helper..."
  dotnet publish "$GITHUB_UI_SRC" `
  	--configuration "$CONFIGURATION" `
-+	-p:UseAppHost=false `
  	--output "$PAYLOAD" 
  
  Write-Output "Publishing GitLab UI helper..."
  dotnet publish "$GITLAB_UI_SRC" `
  	--configuration "$CONFIGURATION" `
-+	-p:UseAppHost=false `
  	--output "$PAYLOAD" 
  
 -# Create copy of main GCM executable with older "GCM Core" name
@@ -41,17 +38,3 @@
  # Delete libraries that are not needed for Windows but find their way
  # into the publish output.
  Remove-Item -Path "$PAYLOAD/*.dylib" -Force
---- src/shared/DotnetTool/DotnetToolSettings.xml
-+++ src/shared/DotnetTool/DotnetToolSettings.xml
-@@ -1,6 +1,11 @@
- <?xml version="1.0" encoding="utf-8" ?>
- <DotNetCliTool Version="1">
-   <Commands>
-     <Command Name="git-credential-manager" EntryPoint="git-credential-manager.dll" Runner="dotnet" Version="6.0" />
-+    <Command Name="git-credential-manager-core" EntryPoint="git-credential-manager.dll" Runner="dotnet" Version="6.0" />
-+    <Command Name="git-credential-manager-ui" EntryPoint="git-credential-manager-ui.dll" Runner="dotnet" Version="6.0" />
-+    <Command Name="Atlassian.Bitbucket.UI" EntryPoint="Atlassian.Bitbucket.UI.dll" Runner="dotnet" Version="6.0" />
-+    <Command Name="GitHub.UI" EntryPoint="GitHub.UI.dll" Runner="dotnet" Version="6.0" />
-+    <Command Name="GitLab.UI" EntryPoint="GitLab.UI.dll" Runner="dotnet" Version="6.0" />
-   </Commands>
- </DotNetCliTool>
