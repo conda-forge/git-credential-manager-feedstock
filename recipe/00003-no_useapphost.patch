@@ -1,9 +1,9 @@
 --- src/windows/Installer.Windows/layout.ps1
 +++ src/windows/Installer.Windows/layout.ps1
-@@ -44,35 +44,29 @@
+@@ -44,35 +44,28 @@
  	--framework net472 `
  	--configuration "$CONFIGURATION" `
- 	--runtime win-x86 `
+-	--runtime win-x86 `
 -	--output "$PAYLOAD"
 +	--output "$PAYLOAD" `
 +	-p:UseAppHost=false
