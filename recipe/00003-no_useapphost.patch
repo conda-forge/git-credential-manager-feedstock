@@ -43,7 +43,7 @@
  Remove-Item -Path "$PAYLOAD/*.dylib" -Force
 --- src/shared/DotnetTool/DotnetToolSettings.xml
 +++ src/shared/DotnetTool/DotnetToolSettings.xml
-@@ -1,5 +1,10 @@
+@@ -1,6 +1,11 @@
  <?xml version="1.0" encoding="utf-8" ?>
  <DotNetCliTool Version="1">
    <Commands>
