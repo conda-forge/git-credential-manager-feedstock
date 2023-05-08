@@ -1,8 +1,10 @@
 --- src/linux/Packaging.Linux/layout.sh
 +++ src/linux/Packaging.Linux/layout.sh
-@@ -39,4 +39,3 @@
+@@ -39,7 +39,6 @@
  
  # Build parameters
  FRAMEWORK=net6.0
 -RUNTIME=linux-x64
  
+ # Perform pre-execution checks
+ CONFIGURATION="${CONFIGURATION:=Debug}"
