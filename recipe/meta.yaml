@@ -7,7 +7,7 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
+  - url: https://github.com/git-ecosystem/{{ name }}/archive/v{{ version }}.tar.gz
     sha256: c51594f6fc06860a8cf81d7bb55a41856be83cc5bba1d3fc131f226d4fd03690
   - url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/{{ name }}.{{ version }}.nupkg
     fn: {{ name }}.{{ version }}.nupkg
