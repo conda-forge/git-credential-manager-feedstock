@@ -12,3 +12,10 @@
 -	--self-contained \
 +	--no-self-contained \
 	--output="$(make_absolute "$PAYLOAD")" || exit 1
+--- src/windows/Installer.Windows/layout.ps1
++++ src/windows/Installer.Windows/layout.ps1
+@@ -99,3 +99,4 @@
+ 	--configuration "$CONFIGURATION" `
+ 	--runtime win-x86 `
++	--no-self-contained `
+ 	--output "$PAYLOAD"
