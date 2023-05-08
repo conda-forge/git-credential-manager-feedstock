@@ -17,7 +17,6 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
     - dotnet  >=6
   host:
     - fontconfig  # [linux64]
