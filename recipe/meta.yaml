@@ -20,8 +20,8 @@ requirements:
     - {{ compiler('cxx') }}  # [linux]
     - dotnet  >=6
   host:
-    - fontconfig  # [linux64]
-    - zlib  # [linux64]
+    - fontconfig  # [linux]
+    - zlib  # [linux]
   run:
     - dotnet-runtime  >=6
 

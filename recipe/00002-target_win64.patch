@@ -35,3 +35,10 @@
  
  # Delete localized resource assemblies - we don't localize the core GCM assembly anyway
  Get-ChildItem "$PAYLOAD" -Recurse -Include "*.resources.dll" | Remove-Item -Force
+--- src/windows/Installer.Windows/Installer.Windows.csproj
++++ src/windows/Installer.Windows/Installer.Windows.csproj
+@@ -5,3 +5,4 @@
+   <PropertyGroup>
+     <TargetFramework>net472</TargetFramework>
++    <PlatformTarget>x64</PlatformTarget>
+     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
