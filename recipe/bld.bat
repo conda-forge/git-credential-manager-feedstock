@@ -6,19 +6,27 @@ if errorlevel 1 exit /b %errorlevel%
 
 popd
 
-move src\shared\DotnetTool\DotnetToolSettings.xml payload\
+mkdir publishdir
 if errorlevel 1 exit /b %errorlevel%
 
-move src\shared\DotnetTool\icon.png payload\
+move src\windows\Installer.Windows\payload publishdir\payload
+if errorlevel 1 exit /b %errorlevel%
+
+move src\shared\DotnetTool\DotnetToolSettings.xml publishdir\payload\
+if errorlevel 1 exit /b %errorlevel%
+
+mkdir publishdir\images\
+if errorlevel 1 exit /b %errorlevel%
+
+move src\shared\DotnetTool\icon.png publishdir\images\
 if errorlevel 1 exit /b %errorlevel%
 
 rem Pack into dotnet tool such that the dlls won't spill into the %PREFIX%
 dotnet pack src\shared\DotnetTool\DotnetTool.csproj ^
   /p:Configuration=Release ^
   /p:PackageVersion=%PKG_VERSION% ^
-  /p:PublishDir=payload ^
-  --runtime win-x64 ^
-  --output
+  /p:PublishDir=publishdir ^
+  --runtime win-x64
 if errorlevel 1 exit /b %errorlevel%
 
 dotnet tool install git-credential-manager ^
