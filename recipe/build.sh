@@ -7,7 +7,10 @@ dotnet tool install git-credential-manager \
   ;
 
 cd "${PREFIX}/lib/dotnet/tools"
-cd ".store/${PKG_NAME}/${PKG_VERSION}/${PKG_NAME}/${PKG_VERSION}/tools/net6.0/any"
+cd ".store/${PKG_NAME}/${PKG_VERSION}/${PKG_NAME}/${PKG_VERSION}"
+rm "${PKG_NAME}.${PKG_VERSION}.nupkg"
+
+cd "tools/net6.0/any"
 mv runtimes temp
 mkdir runtimes
 
