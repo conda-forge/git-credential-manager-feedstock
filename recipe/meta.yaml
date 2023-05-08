@@ -18,7 +18,8 @@ build:
 
 requirements:
   build:
-    - dotnet   =6
+    - dotnet
+    - dotnet-runtime ={{ dotnet_version }}
   run:
     - dotnet-runtime >={{ dotnet_version }},<7
 
