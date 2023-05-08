@@ -1,0 +1,14 @@
+--- src/linux/Packaging.Linux/layout.sh
++++ src/linux/Packaging.Linux/layout.sh
+@@ -75,3 +75,3 @@
+ 	--runtime="$RUNTIME" \
+-	--self-contained \
++	--no-self-contained \
+ 	-p:PublishSingleFile=true \
+--- src/osx/Installer.Mac/layout.sh
++++ src/osx/Installer.Mac/layout.sh
+@@ -99,3 +99,3 @@
+	--runtime="$RUNTIME" \
+-	--self-contained \
++	--no-self-contained \
+	--output="$(make_absolute "$PAYLOAD")" || exit 1
