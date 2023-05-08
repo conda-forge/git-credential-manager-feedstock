@@ -13,17 +13,17 @@ if errorlevel neq 0 exit /b %errorlevel%
 cd tools\net6.0\any\runtimes
 if errorlevel neq 0 exit /b %errorlevel%
 
-mv win-x64 ..
+move win-x64 ..
 if errorlevel neq 0 exit /b %errorlevel%
 
-mv win ..
+move win ..
 if errorlevel neq 0 exit /b %errorlevel%
 
 del /s *
 if errorlevel neq 0 exit /b %errorlevel%
 
-mv ..\win-x64 .
+move ..\win-x64 .
 if errorlevel neq 0 exit /b %errorlevel%
 
-mv ..\win .
+move ..\win .
 if errorlevel neq 0 exit /b %errorlevel%
