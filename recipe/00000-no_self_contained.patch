@@ -14,8 +14,8 @@
 	--output="$(make_absolute "$PAYLOAD")" || exit 1
 --- src/windows/Installer.Windows/layout.ps1
 +++ src/windows/Installer.Windows/layout.ps1
-@@ -99,3 +99,4 @@
- 	--configuration "$CONFIGURATION" `
- 	--runtime win-x86 `
+@@ -43,3 +43,4 @@
+ dotnet publish "$GCM_SRC" `
 +	--no-self-contained `
- 	--output "$PAYLOAD"
+ 	--framework net472 `
+ 	--configuration "$CONFIGURATION" `
