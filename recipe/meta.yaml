@@ -18,6 +18,7 @@ build:
 
 requirements:
   build:
+    - {{ compiler('cxx') }}  # [linux]
     - dotnet
     - dotnet-runtime ={{ dotnet_version }}
   run:
