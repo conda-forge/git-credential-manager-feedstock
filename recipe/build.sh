@@ -1,17 +1,27 @@
 set -eoux pipefail
 
-if [[ "${target_platform}" == "linux-64" ]]
+dotnet tool install git-credential-manager \
+  --tool-path "${PREFIX}/lib/dotnet/tools" \
+  --add-source "${SRC_DIR}" \
+  --verbosity diagnostic \
+  ;
+
+cd "${PREFIX}/lib/dotnet/tools"
+cd ".store/${PKG_NAME}/${PKG_VERSION}/${PKG_NAME}/${PKG_VERSION}/tools/net6.0/any"
+mv runtimes temp
+mkdir runtimes
+
+mv temp/unix runtimes/
+
+if [[ "${target_platform}" == linux-64 ]]
 then
-  # Set correct install location
-  sed -i -E 's|^\s*INSTALL_LOCATION="(.*)"$|    INSTALL_LOCATION="${PREFIX}"|g' ./src/linux/Packaging.Linux/build.sh
-  # Set the correct version
-  echo $(jq ".version = \"${PKG_VERSION}}\"" version.json) > version.json
-  # Build app
-  dotnet build ./src/linux/Packaging.Linux/Packaging.Linux.csproj -c Release -p:InstallFromSource=true
-else
-  dotnet tool install git-credential-manager \
-    --tool-path "${PREFIX}/lib/dotnet/tools" \
-    --add-source "${SRC_DIR}" \
-    --verbosity diagnostic \
-    ;
+  mv temp/linux-x64 runtimes/
+elif [[ "${target_platform}" == linux-aarch64 ]]
+then
+  mv temp/linux-arm64 runtimes/
+elif [[ "${target_platform}" == osx-* ]]
+then
+  mv temp/osx runtimes/
 fi
+
+rm -r temp

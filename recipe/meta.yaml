@@ -1,6 +1,6 @@
 {% set name = "git-credential-manager" %}
 {% set version = "2.1.0" %}
-{% set dotnet_version = "6.0.11" %}
+{% set dotnet_version = "6.0.16" %}
 
 package:
   name: {{ name|lower }}
@@ -9,27 +9,17 @@ package:
 source:
   - url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
     sha256: c51594f6fc06860a8cf81d7bb55a41856be83cc5bba1d3fc131f226d4fd03690
-  - url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/{{ name }}.{{ version }}.nupkg  # [not linux64]
-    fn: {{ name }}.{{ version }}.nupkg  # [not linux64]
-    sha256: 8a362204d3f5ef1b0774dcdf768fa3be12e9209cf7fc224f3435625d6b94b28e  # [not linux64]
+  - url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/{{ name }}.{{ version }}.nupkg
+    fn: {{ name }}.{{ version }}.nupkg
+    sha256: 8a362204d3f5ef1b0774dcdf768fa3be12e9209cf7fc224f3435625d6b94b28e
 
 build:
   number: 1
 
 requirements:
   build:
-    - {{ compiler('cxx') }}  # [linux64]
-    - dotnet  >=6            # [linux64]
-    - jq                     # [linux64]
     - dotnet   =6            # [not linux64]
-  host:
-    - fontconfig             # [linux64]
-    - lttng-ust              # [linux64]
-    - zlib                   # [linux64]
   run:
-    - dotnet-runtime  >=6    # [linux64]
-    - krb5                   # [linux64]
-    - lttng-ust              # [linux64]
     - dotnet-runtime >={{ dotnet_version }},<7  # [not linux64]
 
 test:
@@ -37,7 +27,7 @@ test:
     - git
     - dotnet-runtime ={{ dotnet_version }}  # [not linux64]
   commands:
-    - git-credential-manager --version
+    - git credential-manager --version
 
 about:
   home: https://github.com/GitCredentialManager/git-credential-manager
