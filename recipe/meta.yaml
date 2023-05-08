@@ -10,11 +10,7 @@ source:
     sha256: c51594f6fc06860a8cf81d7bb55a41856be83cc5bba1d3fc131f226d4fd03690
     patches:
       - 00001-set_linux_runtime.patch
-  # Use NuGet package on Windows to avoid spilling *.dll files into %PREFIX%,
-  # which can cause conflicts with other packages.
-  - url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/{{ name }}.{{ version }}.nupkg  # [win]
-    sha256: 8a362204d3f5ef1b0774dcdf768fa3be12e9209cf7fc224f3435625d6b94b28e  # [win]
-    fn: {{ name }}.{{ version }}.nupkg  # [win]
+      - 00002-target_win64.patch
 
 build:
   number: 1
