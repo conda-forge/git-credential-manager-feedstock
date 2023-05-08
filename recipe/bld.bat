@@ -25,7 +25,7 @@ rem Pack into dotnet tool such that the dlls won't spill into the %PREFIX%
 dotnet pack src\shared\DotnetTool\DotnetTool.csproj ^
   /p:Configuration=Release ^
   /p:PackageVersion=%PKG_VERSION% ^
-  /p:PublishDir=publishdir\ ^
+  /p:PublishDir=%SRC_DIR%\publishdir\ ^
   --runtime win-x64
 if errorlevel 1 exit /b %errorlevel%
 
