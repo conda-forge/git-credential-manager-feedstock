@@ -11,4 +11,4 @@ rem Already exists in the package
 del NOTICE
 if errorlevel 1 exit /b %errorlevel%
 
-robocopy * %LIBRARY_BIN% /E
+move * %LIBRARY_BIN%
