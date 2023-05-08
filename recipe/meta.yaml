@@ -1,5 +1,5 @@
 {% set name = "git-credential-manager" %}
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: c51594f6fc06860a8cf81d7bb55a41856be83cc5bba1d3fc131f226d4fd03690
+  sha256: 707ffb6528546b45596fd6ae3d526c65bbaa018daf87dfecfb462ce062500934
   patches:
     - 00000-no_self_contained.patch  # [not aarch64]
     - 00001-set_linux_runtime.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
