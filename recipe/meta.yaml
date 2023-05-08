@@ -11,6 +11,7 @@ source:
   patches:
     - 00000-no_self_contained.patch  # [not aarch64]
     - 00001-set_linux_runtime.patch
+    - 00002-nuget_package_content.patch
 
 build:
   number: 1
