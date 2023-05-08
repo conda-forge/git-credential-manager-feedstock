@@ -2,7 +2,7 @@
 +++ src/shared/DotnetTool/dotnet-tool.nuspec
 @@ 14,4 14,4 @@
    <files>
--    <file src="$publishdir$payload/*" target="tools/net6.0/any" />
+-    <file src="$publishdir$payload/" target="tools/net6.0/any" />
 +    <file src="$publishdir$payload/*" target="tools/net6.0/any" />
      <file src="$publishdir$images/icon.png" target="images" />
    </files>
