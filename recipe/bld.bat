@@ -12,7 +12,7 @@ if errorlevel 1 exit /b %errorlevel%
 move src\windows\Installer.Windows\payload publishdir\payload
 if errorlevel 1 exit /b %errorlevel%
 
-move src\shared\DotnetTool\DotnetToolSettings.xml publishdir\payload\
+move src\shared\DotnetTool\DotnetToolSettings.xml publishdir\
 if errorlevel 1 exit /b %errorlevel%
 
 mkdir publishdir\images\
