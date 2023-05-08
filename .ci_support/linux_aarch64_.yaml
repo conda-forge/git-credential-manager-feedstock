@@ -18,3 +18,5 @@ fontconfig:
 - '2'
 target_platform:
 - linux-aarch64
+zlib:
+- '1.2'
