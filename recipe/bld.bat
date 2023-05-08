@@ -31,7 +31,14 @@ dotnet pack src\shared\DotnetTool\DotnetTool.csproj ^
   /p:PublishDir=%SRC_DIR%\publishdir\
 if errorlevel 1 exit /b %errorlevel%
 
-dir %SRC_DIR%\out\shared\DotnetTool\nupkg\Release
+pushd %SRC_DIR%\out\shared\DotnetTool\nupkg\Release
+mkdir tmp
+powershell -Command "Expand-Archive .\%PKG_NAME%.%PKG_VERSION%.nupkg -DestinationPath .\tmp"
+dir tmp
+dir tmp\tools
+dir tmp\tools\net6.0
+dir tmp\tools\net6.0\any
+popd
 
 dotnet tool install git-credential-manager ^
   --tool-path %PREFIX%\dotnet\tools ^
