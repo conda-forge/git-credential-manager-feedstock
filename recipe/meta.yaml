@@ -1,6 +1,5 @@
 {% set name = "git-credential-manager" %}
 {% set version = "2.1.0" %}
-{% set dotnet_runtime = "6.0.16" %}
 
 package:
   name: {{ name|lower }}
@@ -10,33 +9,25 @@ source:
   - url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
     sha256: c51594f6fc06860a8cf81d7bb55a41856be83cc5bba1d3fc131f226d4fd03690
     patches:
-      - 00001-set_install_location.patch
-  - folder: payload # [win64 or osx]
-    url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/gcm-osx-arm64-{{ version }}.tar.gz  # [osx and arm64]
-    sha256: edaaf706cd92a0b838927694276ad9f9573e6196210070e801d3b90f3ea2197f  # [osx and arm64]
-    url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/gcm-osx-x64-{{ version }}.tar.gz  # [osx and x86_64]
-    sha256: b6c3b7621b86c7b1a62ed1a707d9039a89e1cd4d653948f4022950f22d72ee53  # [osx and x86_64]
-    url: https://github.com/git-ecosystem/{{ name }}/releases/download/v{{ version }}/gcm-win-x86-{{ version }}.zip  # [win64]
-    sha256: 50addbb42e53bb944576efcc2ab3de7947064f6273b0ed9cfb0833e9566b062c  # [win64]
+      - 00001-set_linux_runtime.patch
 
 build:
+  skip: true  # [win64]
   number: 1
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - dotnet  >=6  # [linux64]
+    - dotnet  >=6
   host:
-    - fontconfig
-    - zlib
+    - fontconfig  # [linux64]
+    - zlib  # [linux64]
   run:
-    - dotnet-runtime  >=6  # [linux64]
-    - dotnet-runtime >={{ dotnet_runtime }}  # [not linux64]
+    - dotnet-runtime  >=6
 
 test:
   requires:
     - git
-    - dotnet-runtime ={{ dotnet_runtime }}  # [not linux64]
   commands:
     - git credential-manager --version
 
