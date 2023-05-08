@@ -33,7 +33,8 @@ if errorlevel 1 exit /b %errorlevel%
 
 pushd %SRC_DIR%\out\shared\DotnetTool\nupkg\Release
 mkdir tmp
-powershell -Command "Expand-Archive .\%PKG_NAME%.%PKG_VERSION%.nupkg -DestinationPath .\tmp"
+copy %PKG_NAME%.%PKG_VERSION%.nupkg %PKG_NAME%.%PKG_VERSION%.zip
+powershell -Command "Expand-Archive .\%PKG_NAME%.%PKG_VERSION%.zip -DestinationPath .\tmp"
 dir tmp
 dir tmp\tools
 dir tmp\tools\net6.0
