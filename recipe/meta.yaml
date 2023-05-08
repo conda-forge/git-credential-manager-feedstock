@@ -18,14 +18,14 @@ build:
 
 requirements:
   build:
-    - dotnet   =6            # [not linux64]
+    - dotnet   =6
   run:
-    - dotnet-runtime >={{ dotnet_version }},<7  # [not linux64]
+    - dotnet-runtime >={{ dotnet_version }},<7
 
 test:
   requires:
     - git
-    - dotnet-runtime ={{ dotnet_version }}  # [not linux64]
+    - dotnet-runtime ={{ dotnet_version }}
   commands:
     - git credential-manager --version
 
