@@ -195,4 +195,5 @@ Feedstock Maintainers
 =====================
 
 * [@dhirschfeld](https://github.com/dhirschfeld/)
+* [@sshockwave](https://github.com/sshockwave/)
 
