@@ -9,7 +9,7 @@ source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 707ffb6528546b45596fd6ae3d526c65bbaa018daf87dfecfb462ce062500934
   patches:
-    - 00000-no_self_contained.patch  # [not aarch64]
+    - 00000-no_self_contained.patch  # [not aarch64 and not arm64]
     - 00001-set_linux_runtime.patch
 
 build:
