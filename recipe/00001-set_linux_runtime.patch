@@ -3,7 +3,7 @@
 @@ -39,7 +39,6 @@
  
  # Build parameters
- FRAMEWORK=net6.0
+ FRAMEWORK=net7.0
 -RUNTIME=linux-x64
  
  # Perform pre-execution checks
