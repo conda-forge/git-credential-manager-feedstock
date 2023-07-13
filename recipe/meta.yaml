@@ -13,6 +13,7 @@ source:
     - 00001-set_linux_runtime.patch
 
 build:
+  skip: true  # [aarch64]
   number: 0
 
 requirements:
