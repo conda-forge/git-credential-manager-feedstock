@@ -18,12 +18,12 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
-    - dotnet  >=6
+    - dotnet  >=7
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
   run:
-    - dotnet-runtime =6
+    - dotnet-runtime =7
 
 test:
   requires:
