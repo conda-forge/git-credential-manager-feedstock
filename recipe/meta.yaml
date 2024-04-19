@@ -1,5 +1,5 @@
 {% set name = "git-credential-manager" %}
-{% set version = "2.4.1" %}
+{% set version = "2.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: b4b53707d3c4c485e5177f210381ea2f096b46ff951206037974f74fa1f05c4d
+  sha256: 110a991add6e131d3ed8eb1004e85d5fc1524f31062359616f5c325ec1423ec4
   patches:
     - 00000-no_self_contained.patch  # [not aarch64 and not arm64]
     - 00001-set_linux_runtime.patch
@@ -19,6 +19,7 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
+    - {{ stdlib("c") }}    # [linux]
     - dotnet  >=7
     # Make sure that the runtime version is larger than the build version
     - dotnet-runtime =7.0.0
