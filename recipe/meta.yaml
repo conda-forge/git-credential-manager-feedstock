@@ -20,14 +20,13 @@ requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
     - {{ stdlib("c") }}    # [linux]
-    - dotnet  >=7
+    - dotnet =8
     # Make sure that the runtime version is larger than the build version
-    - dotnet-runtime =7.0.0
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
   run:
-    - dotnet-runtime =7
+    - dotnet-runtime =8
 
 test:
   requires:
