@@ -20,8 +20,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
     - {{ stdlib("c") }}    # [linux]
-    - dotnet =8
-    - dotnet-runtime  # required for `pin_compatible` to work
+    - dotnet
     # Make sure that the runtime version is larger than the build version
   host:
     - fontconfig  # [linux]
