@@ -25,6 +25,7 @@ requirements:
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
+    - dotnet-runtime
   run:
     - {{ pin_compatible('dotnet-runtime', min_pin='x.x.x', max_pin='x') }}
 
