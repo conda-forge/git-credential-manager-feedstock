@@ -14,19 +14,20 @@ source:
 
 build:
   skip: true  # [aarch64]
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
     - {{ stdlib("c") }}    # [linux]
-    - dotnet =8
+    - dotnet
     # Make sure that the runtime version is larger than the build version
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
+    - dotnet-runtime
   run:
-    - dotnet-runtime =8
+    - {{ pin_compatible('dotnet-runtime', min_pin='x.x.x', max_pin='x') }}
 
 test:
   requires:
