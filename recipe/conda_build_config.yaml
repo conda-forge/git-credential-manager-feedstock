@@ -1,2 +1,6 @@
 dotnet:
 - 8
+pin_run_as_build:
+  dotnet-runtime:
+    min_pin: x.x.x
+    max_pin: x
