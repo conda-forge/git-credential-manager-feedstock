@@ -20,14 +20,12 @@ requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
     - {{ stdlib("c") }}    # [linux]
-    - dotnet
-    # Make sure that the runtime version is larger than the build version
+    - dotnet =8.0.0
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
-    - dotnet-runtime
   run:
-    - {{ pin_compatible('dotnet-runtime', min_pin='x.x.x', max_pin='x') }}
+    - dotnet-runtime =8
 
 test:
   requires:
