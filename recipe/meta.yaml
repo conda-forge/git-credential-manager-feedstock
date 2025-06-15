@@ -14,14 +14,13 @@ source:
 
 build:
   skip: true  # [aarch64]
-  number: 0
+  number: 1
 
 requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
     - {{ stdlib("c") }}    # [linux]
-    - dotnet =8
-    # Make sure that the runtime version is larger than the build version
+    - dotnet =8.0.100
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
