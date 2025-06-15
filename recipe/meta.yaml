@@ -20,7 +20,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
     - {{ stdlib("c") }}    # [linux]
-    - dotnet =8.0.0
+    - dotnet =8.0.100
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
