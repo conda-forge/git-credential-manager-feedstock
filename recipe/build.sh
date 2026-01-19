@@ -20,8 +20,8 @@ fi
 if [[ "${target_platform}" == linux-* ]]
 then
   export CONFIGURATION=LinuxRelease
+  export PAYLOAD=out/linux/Packaging.Linux/"$CONFIGURATION"/payload
   src/linux/Packaging.Linux/layout.sh
-  PAYLOAD=out/linux/Packaging.Linux/"$CONFIGURATION"/payload
 elif [[ "${target_platform}" == osx-* ]]
 then
   export CONFIGURATION=MacRelease
