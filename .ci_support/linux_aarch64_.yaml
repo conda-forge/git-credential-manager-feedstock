@@ -15,4 +15,6 @@ docker_image:
 fontconfig:
 - '2'
 target_platform:
-- linux-64
+- linux-aarch64
+zlib:
+- '1'
