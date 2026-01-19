@@ -1,10 +1,10 @@
 --- src/linux/Packaging.Linux/layout.sh
 +++ src/linux/Packaging.Linux/layout.sh
 @@ -95,3 +95,3 @@
- 	--runtime="$RUNTIME" \
--	--self-contained \
-+	--no-self-contained \
- 	-p:PublishSingleFile=true \
+         --runtime="$RUNTIME" \
+-        --self-contained \
++        --no-self-contained \
+         -p:PublishSingleFile=true \
 --- src/osx/Installer.Mac/layout.sh
 +++ src/osx/Installer.Mac/layout.sh
 @@ -99,3 +99,3 @@
