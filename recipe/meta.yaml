@@ -10,11 +10,6 @@ source:
   sha256: 248468dcaf111402892c56d4cbc370dcfc1429976e7abcc1120c49757779be39
   patches:
     - 00000-no_self_contained.patch  # [not aarch64 and not arm64]
-    # This fixes the call to string.Split(), needed for .NET 8.0 but not for .net 4.7.
-    # When the Windows version upgrades .NET version,
-    # we can apply this fix to all platforms.
-    # This fix is also tracked in the upstream.
-    - 00001-fix_ambiguous_call_to_string_split.patch  # [not win]
 
 build:
   number: 0
