@@ -1,5 +1,5 @@
 {% set name = "git-credential-manager" %}
-{% set version = "2.7.3" %}
+{% set version = "2.9.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,9 @@ package:
 
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: a9c1d7a89c620bea0df65623f25c62e66122d22557583ab390ed612d544884e9
+  sha256: 248468dcaf111402892c56d4cbc370dcfc1429976e7abcc1120c49757779be39
   patches:
     - 00000-no_self_contained.patch  # [not aarch64 and not arm64]
-    # This fixes the call to string.Split(), needed for .NET 8.0 but not for .net 4.7.
-    # When the Windows version upgrades .NET version,
-    # we can apply this fix to all platforms.
-    # This fix is also tracked in the upstream.
-    - 00001-fix_ambiguous_call_to_string_split.patch  # [not win]
 
 build:
   number: 0
@@ -23,12 +18,12 @@ requirements:
   build:
     - {{ compiler('cxx') }}  # [linux]
     - {{ stdlib("c") }}    # [linux]
-    - dotnet =8.0.100
+    - dotnet =10.0.100
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
   run:
-    - dotnet-runtime =8
+    - dotnet-runtime =10
 
 test:
   requires:
