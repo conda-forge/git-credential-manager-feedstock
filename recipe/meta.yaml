@@ -14,8 +14,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}  # [linux]
-    - {{ stdlib("c") }}    # [linux]
+    - {{ compiler('c') }}  # [linux]
     - dotnet =10.0.100
   host:
     - fontconfig  # [linux]
