@@ -1,7 +1,7 @@
-cd src\windows\Installer.Windows\
+cd build\windows\
 if errorlevel 1 exit /b %errorlevel%
 
-powershell -Command ".\layout.ps1 -Configuration WindowsRelease -Output payload -SymbolOutput symbols"
+powershell -Command ".\publish.ps1 -Configuration release -Output payload -SymbolOutput symbols -Aot $true"
 if errorlevel 1 exit /b %errorlevel%
 
 cd payload

@@ -17,23 +17,27 @@ else
   exit 1
 fi
 
+# Install script taken from
+# https://github.com/git-ecosystem/git-credential-manager/blob/main/build/install-from-source.sh
+
 if [[ "${target_platform}" == linux-* ]]
 then
-  export CONFIGURATION=LinuxRelease
-  export PAYLOAD=out/linux/Packaging.Linux/"$CONFIGURATION"/payload
-  src/linux/Packaging.Linux/layout.sh
+  publish_script=build/linux/publish.sh
 elif [[ "${target_platform}" == osx-* ]]
 then
-  export CONFIGURATION=MacRelease
-  export PAYLOAD=payload
-  src/osx/Installer.Mac/layout.sh
+  publish_script=build/macos/publish.sh
 else
   echo "Unknown target platform: ${target_platform}"
   exit 1
 fi
 
-# Install script taken from
-# https://github.com/git-ecosystem/git-credential-manager/blob/release/src/linux/Packaging.Linux/build.sh
+PAYLOAD="out/install-from-source/payload"
+
+"$publish_script" \
+  --configuration Release \
+  --aot \
+  --runtime "${RUNTIME}" \
+  --output "${PAYLOAD}"
 
 INSTALL_TO="$PREFIX/share/gcm-core/"
 LINK_TO="$PREFIX/bin/"

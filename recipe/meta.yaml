@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 30fb3e29fec029fa737959c2bf0729f499c712280343480d46656b089b4b70fd
-  patches:
-    - 00000-no_self_contained.patch  # [not aarch64 and not arm64]
 
 build:
   number: 0
@@ -22,8 +20,6 @@ requirements:
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
-  run:
-    - dotnet-runtime =10
 
 test:
   requires:
