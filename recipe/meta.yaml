@@ -1,5 +1,5 @@
 {% set name = "git-credential-manager" %}
-{% set version = "2.9.1" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,23 +7,23 @@ package:
 
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 248468dcaf111402892c56d4cbc370dcfc1429976e7abcc1120c49757779be39
+  sha256: 30fb3e29fec029fa737959c2bf0729f499c712280343480d46656b089b4b70fd
   patches:
-    - 00000-no_self_contained.patch  # [not aarch64 and not arm64]
+    - 0001-use_conda_cc_env.patch  # [linux]
+    # The script needs PowerShell 7, but this environment only provides an older version.
+    - 0002-pwsh_5_compat.patch  # [win]
 
 build:
   number: 0
 
 requirements:
   build:
-    - {{ compiler('cxx') }}  # [linux]
-    - {{ stdlib("c") }}    # [linux]
+    - {{ compiler('c') }}  # [linux]
+    - {{ stdlib("c") }}  # [linux]
     - dotnet =10.0.100
   host:
     - fontconfig  # [linux]
     - zlib  # [aarch64]
-  run:
-    - dotnet-runtime =10
 
 test:
   requires:

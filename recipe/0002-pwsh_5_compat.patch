@@ -1,0 +1,11 @@
+--- a/build/windows/publish.ps1
++++ b/build/windows/publish.ps1
+@@ -32,7 +32,7 @@ $Runtime = Resolve-Runtime $Runtime
+ $Version = Resolve-Version $Version
+ 
+ # Directories
+-$GcmSrc = Join-Path (Get-RepoRoot) 'src' 'git-credential-manager'
++$GcmSrc = Join-Path (Get-RepoRoot) 'src\git-credential-manager'
+ 
+ # Resolve the publish output directory (default: the project's artifacts publish
+ # directory) and the sibling directory that debug symbols are separated into.
