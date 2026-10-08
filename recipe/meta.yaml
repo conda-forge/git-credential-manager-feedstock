@@ -8,6 +8,10 @@ package:
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 30fb3e29fec029fa737959c2bf0729f499c712280343480d46656b089b4b70fd
+  patches:
+    - 0001-use_conda_cc_env.patch  # [linux]
+    # The script needs PowerShell 7, but this environment only provides an older version.
+    - 0002-pwsh_5_compat.patch  # [win]
 
 build:
   number: 0

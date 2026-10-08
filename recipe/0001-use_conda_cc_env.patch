@@ -1,0 +1,10 @@
+--- a/build/linux/publish.sh
++++ b/build/linux/publish.sh
+@@ -108,6 +108,7 @@ dotnet publish "$GCM_SRC" \
+     --output "$OUTDIR" \
+     -p:PublishAot=$AOT \
+     -p:VersionOverride="$VERSION" \
++    -p:CppCompilerAndLinker="$CC" \
+     || die "Failed to publish application"
+ 
+ # Separate debug symbols (managed .pdb files and native .dbg files) out of the
