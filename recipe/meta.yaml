@@ -1,5 +1,5 @@
 {% set name = "git-credential-manager" %}
-{% set version = "3.0.2" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/GitCredentialManager/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 561cd3c664a314e20dec9fad504c50bba6975b29aaf68c342daf1820130fa8bc
+  sha256: c634b0db4497d951292a4a8bf0f20f0373464c226b61c1000d93dd2a871c1492
   patches:
     - 0001-use_conda_cc_env.patch  # [linux]
     # The script needs PowerShell 7, but this environment only provides an older version.
